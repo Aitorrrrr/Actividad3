@@ -110,7 +110,7 @@ public class MyDBAdapter {
     public ArrayList<String[]> recuperarEstudiantesPorCiclo(String ciclo){
         ArrayList<String[]> est = new ArrayList<String[]>();
 
-        Cursor cursor = db.query(TABLA_ESTUDIANTES,null,"WHERE ciclo='"+ciclo+"'",null,null,null,null);
+        Cursor cursor = db.query(TABLA_ESTUDIANTES,null,"ciclo='"+ciclo+"'",null,null,null,null);
         if (cursor != null && cursor.moveToFirst()){
             do{
                 String [] valores = new String [5];
@@ -130,7 +130,7 @@ public class MyDBAdapter {
     public ArrayList<String[]> recuperarEstudiantesPorCurso(String curso){
         ArrayList<String[]> est = new ArrayList<String[]>();
 
-        Cursor cursor = db.query(TABLA_ESTUDIANTES,null,curso,null,null,null,null);
+        Cursor cursor = db.query(TABLA_ESTUDIANTES,null,"curso='"+curso+"'",null,null,null,null);
         if (cursor != null && cursor.moveToFirst()){
             do{
                 String [] valores = new String [5];

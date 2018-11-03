@@ -151,7 +151,7 @@ public class Actividad3c extends AppCompatActivity {
 
                 auxiliar = adaptador.recuperarProfesores();
 
-                texto.setText("Profesores");
+                texto.setText(texto.getText()+"Profesores");
                 for (String [] aux: auxiliar)
                 {
                     texto.setText(texto.getText()+"Nombre: "+aux[0]+"\n");
