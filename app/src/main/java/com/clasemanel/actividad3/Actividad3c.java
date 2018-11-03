@@ -2,6 +2,9 @@ package com.clasemanel.actividad3;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.method.KeyListener;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -45,9 +48,11 @@ public class Actividad3c extends AppCompatActivity {
 
                 auxiliar = adaptador.recuperarEstudiantes();
 
+                //Limpio búsquedas anteriores
                 texto.setText("");
                 for (String [] aux: auxiliar)
                 {
+                    //Veia innecesario hacer un for para recorrer el array debido al "fórmato" que le doy de salida.
                     texto.setText(texto.getText()+"Nombre: "+aux[0]+"\n");
                     texto.setText(texto.getText()+"Edad: "+aux[1]+"\n");
                     texto.setText(texto.getText()+"Ciclo: "+aux[2]+"\n");
@@ -68,6 +73,7 @@ public class Actividad3c extends AppCompatActivity {
 
                 auxiliar = adaptador.recuperarEstudiantesPorCurso(curso.getText().toString());
 
+                //Limpio búsquedas anteriores
                 texto.setText("");
                 for (String [] aux: auxiliar)
                 {
@@ -91,6 +97,7 @@ public class Actividad3c extends AppCompatActivity {
 
                 auxiliar = adaptador.recuperarEstudiantesPorCiclo(ciclo.getText().toString());
 
+                //Limpio búsquedas anteriores
                 texto.setText("");
                 for (String [] aux: auxiliar)
                 {
@@ -114,6 +121,7 @@ public class Actividad3c extends AppCompatActivity {
 
                 auxiliar = adaptador.recuperarProfesores();
 
+                //Limpio búsquedas anteriores
                 texto.setText("");
                 for (String [] aux: auxiliar)
                 {
@@ -137,6 +145,7 @@ public class Actividad3c extends AppCompatActivity {
 
                 auxiliar = adaptador.recuperarProfesores();
 
+                //Limpio búsquedas anteriores
                 texto.setText("Estudiantes");
                 for (String [] aux: auxiliar)
                 {

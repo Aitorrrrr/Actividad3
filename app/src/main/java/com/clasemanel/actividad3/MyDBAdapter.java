@@ -9,16 +9,17 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import java.util.ArrayList;
-import java.util.jar.Attributes;
 
 
 public class MyDBAdapter {
 
+    //Parámetros bd
     private static final String DATABASE_NAME = "guardar.db";
     private static final String  TABLA_PROFESORES= "profesores";
     private static final String TABLA_ESTUDIANTES = "estudiantes";
     private static final int DATABASE_VERSION = 1;
 
+    //Campos de las tablas
     private static final String NOMBRE = "name";
     private static final String EDAD = "edad";
     private static final String CICLO = "ciclo";
@@ -26,15 +27,14 @@ public class MyDBAdapter {
     private static final String NOTA_MEDIA = "notaMedia";
     private static final String DESPACHO = "despacho";
 
-
+    //Sentencias CREATE TABLE
     private static final String DATABASE_CREATE = "CREATE TABLE "+TABLA_PROFESORES+" (_id integer primary key autoincrement, name text, edad integer, ciclo text, curso text, despacho integer );";
     private static final String DATABASE_CREATE2 = "CREATE TABLE "+TABLA_ESTUDIANTES+" (_id integer primary key autoincrement, name text, edad integer, ciclo text, curso text, notaMedia text );";
 
+    //Sentencias DROP TABLE
     private static final String DATABASE_DROP = "DROP TABLE IF EXISTS "+TABLA_PROFESORES+";";
     private static final String DATABASE_DROP2 = "DROP TABLE IF EXISTS "+TABLA_ESTUDIANTES+";";
 
-
-    // Contexto de la aplicación que usa la base de datos
     private final Context context;
     // Clase SQLiteOpenHelper para crear/actualizar la base de datos
     private MyDbHelper dbHelper;
@@ -44,14 +44,10 @@ public class MyDBAdapter {
     public MyDBAdapter(Context context) {
         this.context = context;
         dbHelper = new MyDbHelper(context, DATABASE_NAME, null, DATABASE_VERSION);
-
-        //open();
-        //Tenemos que abrir el método OPEN para que nuestra base de datos nos escriba y sino por lo menos la lea
     }
 
 
     public void open(){
-
         try{
             db = dbHelper.getWritableDatabase();
             Log.d("MIO", "Escritura");
@@ -59,40 +55,42 @@ public class MyDBAdapter {
             Log.d("MIO", "Solo lectura");
             db = dbHelper.getReadableDatabase();
         }
-
     }
 
-    public void insertarEstudiantes(String nom, String age, String cicl, String curs, String nota){
-        //Creamos el content values para después con el PUT añadir cada valor en su tabla
+    //Recibo e introduzco todos los parámetros como strings para facilitarme inserción
+    public void insertarEstudiantes(String nombre, String edad, String ciclo, String curso, String nota){
         ContentValues newEstudiantes = new ContentValues();
 
-        newEstudiantes.put(NOMBRE,nom);
-        newEstudiantes.put(EDAD,age);
-        newEstudiantes.put(CICLO,cicl);
-        newEstudiantes.put(CURSO,curs);
+        newEstudiantes.put(NOMBRE,nombre);
+        newEstudiantes.put(EDAD,edad);
+        newEstudiantes.put(CICLO,ciclo);
+        newEstudiantes.put(CURSO,curso);
         newEstudiantes.put(NOTA_MEDIA,nota);
 
         db.insert(TABLA_ESTUDIANTES,null,newEstudiantes);
     }
-    public void insertarProfesores(String nom, String age, String cicl, String curs, String despacho){
-        //Creamos el content values para después con el PUT añadir cada valor en su tabla
+
+    //Recibo e introduzco todos los parámetros como strings para facilitarme la inserción
+    public void insertarProfesores(String nombre, String edad, String ciclo, String curso, String despacho){
         ContentValues newProfesores = new ContentValues();
 
-        newProfesores.put(NOMBRE,nom);
-        newProfesores.put(EDAD,age);
-        newProfesores.put(CICLO,cicl);
-        newProfesores.put(CURSO,curs);
+        newProfesores.put(NOMBRE,nombre);
+        newProfesores.put(EDAD,edad);
+        newProfesores.put(CICLO,ciclo);
+        newProfesores.put(CURSO,curso);
         newProfesores.put(DESPACHO,despacho);
 
         db.insert(TABLA_PROFESORES,null,newProfesores);
     }
 
     public ArrayList<String[]> recuperarEstudiantes(){
+        //Devuelvo una lista de arrays de Strings no una lista de Strings, cada array, es un alumno
         ArrayList<String[]> est = new ArrayList<String[]>();
 
         Cursor cursor = db.query(TABLA_ESTUDIANTES,null,null,null,null,null,null);
         if (cursor != null && cursor.moveToFirst()){
             do{
+                //Cada columna es un valor del array
                 String [] valores = new String [5];
                 valores[0]=(cursor.getString(1));
                 valores[1]=(cursor.getString(2));
@@ -108,11 +106,14 @@ public class MyDBAdapter {
     }
 
     public ArrayList<String[]> recuperarEstudiantesPorCiclo(String ciclo){
+        //Devuelvo una lista de arrays de Strings no una lista de Strings, cada array, es un alumno
         ArrayList<String[]> est = new ArrayList<String[]>();
 
+        //Filtramos introduciendo un filtro estilo SQL en el parámetro "selection"
         Cursor cursor = db.query(TABLA_ESTUDIANTES,null,"ciclo='"+ciclo+"'",null,null,null,null);
         if (cursor != null && cursor.moveToFirst()){
             do{
+                //Cada columna es un valor del array
                 String [] valores = new String [5];
                 valores[0]=(cursor.getString(1));
                 valores[1]=(cursor.getString(2));
@@ -128,11 +129,14 @@ public class MyDBAdapter {
     }
 
     public ArrayList<String[]> recuperarEstudiantesPorCurso(String curso){
+        //Devuelvo una lista de arrays de Strings no una lista de Strings, cada array, es un alumno
         ArrayList<String[]> est = new ArrayList<String[]>();
 
+        //Filtramos introduciendo un filtro estilo SQL en el parámetro "selection"
         Cursor cursor = db.query(TABLA_ESTUDIANTES,null,"curso='"+curso+"'",null,null,null,null);
         if (cursor != null && cursor.moveToFirst()){
             do{
+                //Cada columna es un valor del array
                 String [] valores = new String [5];
                 valores[0]=(cursor.getString(1));
                 valores[1]=(cursor.getString(2));
@@ -148,11 +152,13 @@ public class MyDBAdapter {
     }
 
     public ArrayList<String[]> recuperarProfesores(){
+        //Devuelvo una lista de arrays de Strings no una lista de Strings, cada array, es un profesor
         ArrayList<String[]> pro = new ArrayList<String[]>();
 
         Cursor cursor = db.query(TABLA_PROFESORES,null,null,null,null,null,null);
         if (cursor != null && cursor.moveToFirst()){
             do{
+                //Cada columna es un valor del array
                 String [] valores = new String [5];
                 valores[0]=(cursor.getString(1));
                 valores[1]=(cursor.getString(2));
