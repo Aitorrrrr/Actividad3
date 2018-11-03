@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".estudiante"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="Introducción alumno"
+        android:textStyle="bold"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"/>
+
+    <EditText
+        android:id="@+id/nombre_est"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:hint="Nombre"/>
+
+    <EditText
+        android:id="@+id/edad_est"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:hint="Edad"/>
+
+    <EditText
+        android:id="@+id/ciclo_est"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:hint="Ciclo"/>
+
+    <EditText
+        android:id="@+id/curso_est"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:hint="Curso"/>
+
+    <EditText
+        android:id="@+id/nota_est"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:hint="Nota"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="0.8"
+        android:layout_gravity="center_horizontal">
+
+        <Button
+            android:id="@+id/guardar_est"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:text="Guardar"/>
+
+        <Button
+            android:id="@+id/volver_est"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:text="Volver"/>
+    </LinearLayout>
+
+</LinearLayout>

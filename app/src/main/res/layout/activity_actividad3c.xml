@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Actividad3c"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/texto_3c"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/estTodos_3c"
+            android:layout_width="wrap_content"
+            android:layout_gravity="right"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="Todos Estudiantes"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+              <EditText
+                  android:id="@+id/cicloCiclo_3c"
+                  android:layout_width="0dp"
+                  android:layout_height="wrap_content"
+                  android:layout_weight="1"/>
+
+                <Button
+                    android:id="@+id/estCiclo_3c"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Estudiante Ciclo"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <EditText
+                android:id="@+id/cursoCurso_3c"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+            <Button
+                android:id="@+id/estCurso_3c"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Estudiante Curso"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/proTodos_3c"
+            android:layout_width="wrap_content"
+            android:layout_gravity="right"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="Todos Profesores"/>
+
+        <Button
+            android:id="@+id/todos_3c"
+            android:layout_width="wrap_content"
+            android:layout_gravity="right"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="Todos el mundo"/>
+
+    </LinearLayout>
+
+</LinearLayout>

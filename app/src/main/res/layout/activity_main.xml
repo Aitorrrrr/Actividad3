@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:paddingRight="24dp"
+    android:paddingLeft="24dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="Preferencias"
+        android:textStyle="bold"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"/>
+
+    <EditText
+        android:id="@+id/nombre_pref"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:hint="Nombre"/>
+
+    <EditText
+        android:id="@+id/usuario_pref"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:hint="Usuario"/>
+
+    <EditText
+        android:id="@+id/fecha_pref"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:hint="Fecha Nacimiento"/>
+
+    <RadioGroup
+        android:id="@+id/grupo_pref"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+        
+        <RadioButton
+            android:id="@+id/varon_pref"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Varón"/>
+
+        <RadioButton
+            android:id="@+id/hembra_pref"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Hembra"/>
+    </RadioGroup>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="0.8"
+        android:layout_gravity="center_horizontal">
+
+        <Button
+            android:id="@+id/Guardar_pref"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:text="Guardar"/>
+
+        <Button
+            android:id="@+id/Mostrar_pref"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:text="Mostrar"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="0.8"
+        android:layout_gravity="center_horizontal">
+
+        <Button
+            android:id="@+id/act3b"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="3b"
+            android:layout_gravity="center_horizontal"/>
+
+        <Button
+            android:id="@+id/act3c"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="3c"
+            android:layout_gravity="center_horizontal"/>
+    </LinearLayout>
+
+</LinearLayout>
